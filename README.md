@@ -45,6 +45,12 @@ pip install -r requirements.txt
 
 _(Bonus: Try to do the above in a virtual environment; see Appendix)_
 
+3. Download `loans.csv` from eLearn and add it to the `data/` folder.
+
+4. Run `python src/main.py` from project root directory and you should see the output below:
+
+![Example Output](data/main_script_output.png)
+
 ### Appendix
 
 #### Set Python Default Interpreter to Anaconda Python (base)
