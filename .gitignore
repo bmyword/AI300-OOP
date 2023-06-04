@@ -1,0 +1,12 @@
+# Env Secrets
+.env
+
+# Data files
+data/*.csv
+
+# Virtualenv files
+venv/
+
+# Byte-compiled, cached, optimized files
+*.pyc
+catboost_info/
