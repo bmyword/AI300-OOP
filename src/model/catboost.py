@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 from config import CATBOOST_MODEL_FILEPATH, CHOSEN_CATBOOST_PARAMS
 from catboost import CatBoostClassifier
+import joblib
 
 
-class Model:
+class Model(ABC):
     '''
       Interface used for CatBoostModel.
       This class serves the purposes of
@@ -26,14 +27,15 @@ class Model:
         pass
 
     @abstractmethod
-    def load(self):
+    def load(self, input_file_path):
         '''Load trained model from file'''
-        pass
+        return joblib.load(input_file_path)
+
 
     @abstractmethod
-    def save(self):
+    def save(self, model, output_file_path):
         '''Save trained model to file'''
-        pass
+        joblib.dump(model, output_file_path)
 
 
 class CatBoostModel(Model):
@@ -56,9 +58,9 @@ class CatBoostModel(Model):
         return self.model.predict_proba(X)[:, 1]
 
     def load(self):
-        self.model.load_model(CATBOOST_MODEL_FILEPATH)
+        self.model = super().load(CATBOOST_MODEL_FILEPATH)
         return self
 
     def save(self):
-        self.model.save_model(CATBOOST_MODEL_FILEPATH)
+        super().save(self.model, CATBOOST_MODEL_FILEPATH)
         return self

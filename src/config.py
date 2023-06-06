@@ -3,7 +3,7 @@ TARGET_COL = 'loan_approval_status'
 
 # Catboost config
 
-CATBOOST_MODEL_FILEPATH = 'model/catboost_model.cbm'
+CATBOOST_MODEL_FILEPATH = 'model/catboost_model.pkl'
 # Params are derived from research phase in ipynb
 CHOSEN_CATBOOST_PARAMS = {
     "iterations": 100,
