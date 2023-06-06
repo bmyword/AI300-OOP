@@ -42,15 +42,10 @@ class CatBoostModel(Model):
         self.model = CatBoostClassifier(**CHOSEN_CATBOOST_PARAMS)
 
     def train(self, X, y):
-        feature_cols = list(X.columns)
-
-        object_col_idx = []
-        for col_name in feature_cols:
-            if X[col_name].dtype == 'object':
-                object_col_idx.append(feature_cols.index(col_name))
-
+        cat_features = list(X.select_dtypes(include='object').columns)
+        
         print('Training Catboost model...', end='', flush=True)
-        self.model.fit(X, y, cat_features=object_col_idx, verbose=False)
+        self.model.fit(X, y, cat_features=cat_features, verbose=False)
         print('done.')
         return self
 
