@@ -31,7 +31,6 @@ class Model(ABC):
         '''Load trained model from file'''
         return joblib.load(input_file_path)
 
-
     @abstractmethod
     def save(self, model, output_file_path):
         '''Save trained model to file'''
@@ -45,7 +44,7 @@ class CatBoostModel(Model):
 
     def train(self, X, y):
         cat_features = list(X.select_dtypes(include='object').columns)
-        
+
         print('Training Catboost model...', end='', flush=True)
         self.model.fit(X, y, cat_features=cat_features, verbose=False)
         print('done.')
