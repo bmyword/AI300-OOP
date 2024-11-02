@@ -11,7 +11,7 @@ Take-Home Practice_
 * How to use this codebase
   - Use it as a starting point for your future practice (and capstone)
   - Implement features incrementally on a "need-to" basis e.g. start with data loading features, and once you get to model implementation, start with `train()` and use `pass` for un-implemented methods until you get to them.
-  - Strive to reproduce the implementation from scratch as far as possible. Refrain from copy-pasting code chunks unless you truly understand them! (Except `DBDataLoader` which contains [boilerplate code](https://g.co/kgs/KmVdPG) for interacting with MySQLServer)
+  - Strive to reproduce the implementation from scratch as far as possible. Refrain from copy-pasting code chunks unless you truly understand them!
 
 Feel free to reach out to your instructor team if you face issues or have follow-up questions.
 
@@ -62,14 +62,16 @@ _(Bonus: Try to do the above in a virtual environment; see Appendix)_
 
 #### Create Virtual Environment
 
-1. If you have not installed `virtualenv`, run `pip install virtualenv` in your Terminal
-2. Ensure you're in your project root directory.
-3. To create a new virtual environment called `venv`
+1. Open a new Terminal window in your project root directory
+2. You should also have configured a Python Default Interpreter (see above).
+3. To create a new virtual environment called `venv`, run:
 ```bash
-virtualenv venv
+python -m venv venv
 ```
+This creates a new `venv/` folder in your project directory.
+
 4. To activate virtual environment, run the appropriate command
 - `source venv/bin/activate` on macOS and Linux
 - `source venv/Scripts/activate` on Windows (using Git Bash Terminal)
 - `venv\Scripts\activate` on Windows (using Command Prompt)
-5. Once activated, you will notice that your terminal prompt is prefixed with `(venv)`, which indicates you are now working within the virtual environment. Congrats!
+5. Once activated, you will notice that your terminal prompt is prefixed with `(venv)`, which indicates you are now working within the virtual environment. Congrats! you may now install package dependencies for this codebase using the steps outlined above.
